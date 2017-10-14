@@ -1,0 +1,24 @@
+{
+  "name": "my-first-nodejs-app",
+  "version": "1.0.0",
+  "description": "So I've been asked to implement a distributed files application...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcellyluise/my-first-nodejs-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcellyluise/my-first-nodejs-app/issues"
+  },
+  "homepage": "https://github.com/marcellyluise/my-first-nodejs-app#readme",
+  "dependencies": {
+    "hapi": "^16.6.2",
+    "hoek": "^5.0.0"
+  }
+}
