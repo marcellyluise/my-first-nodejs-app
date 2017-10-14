@@ -18,4 +18,3 @@ Models.sequelize.sync().then(() => {
         console.log(`Server running at: ${Server.info.uri}`);
     });
 });
-
