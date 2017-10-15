@@ -11,7 +11,8 @@ const Server = new Hapi.Server();
 Server.connection({port: Settings.port});
 
 Server.register([
-    require('vision')
+    require('vision'),
+    require('inert')
 ], (err) => {
     Hoek.assert(!err, err);
 
@@ -26,7 +27,7 @@ Server.register([
     });
 
     Server.route(Routes);
-});
+})
 
 Models.sequelize.sync().then(() => {
     Server.start((err) => {
