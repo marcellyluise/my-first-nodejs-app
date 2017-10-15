@@ -5,11 +5,28 @@ const Routes = require('./lib/routes');
 const Hapi = require('hapi');
 const Hoek = require('hoek');
 const Settings = require('./settings');
+const Path = require('path');
 
 const Server = new Hapi.Server();
 Server.connection({port: Settings.port});
 
-Server.route(Routes);
+Server.register([
+    require('vision')
+], (err) => {
+    Hoek.assert(!err, err);
+
+    Server.views({
+        engines: {pug: require('pug')},
+        path: Path.join(__dirname, 'lib/views'),
+        compileOptions: {
+            pretty: false
+        },
+
+        isCached: Settings.env === 'production'
+    });
+
+    Server.route(Routes);
+});
 
 Models.sequelize.sync().then(() => {
     Server.start((err) => {
