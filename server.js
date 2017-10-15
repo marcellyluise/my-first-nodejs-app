@@ -27,7 +27,7 @@ Server.register([
     });
 
     Server.route(Routes);
-})
+});
 
 Models.sequelize.sync().then(() => {
     Server.start((err) => {
